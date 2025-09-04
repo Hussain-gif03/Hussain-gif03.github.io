@@ -10,16 +10,18 @@
 
   <style>
     :root{
-      --bg: #f6f8fb;
+      --bg: #f8fafc;
       --card: #ffffff;
       --muted: #6b7280;
-      --primary: #2563eb; /* blue */
+      --primary: #1d4ed8; /* Indigo */
+      --primary-dark: #1e40af;
       --accent-green: #16a34a;
       --accent-purple: #7c3aed;
       --accent-orange: #f97316;
       --radius: 12px;
       --maxw: 1150px;
       --container-pad: 24px;
+      --gradient: linear-gradient(135deg, #1d4ed8, #9333ea);
     }
     *{box-sizing:border-box}
     body{font-family: 'Poppins', 'Roboto', sans-serif; margin:0; background:var(--bg); color:#0f172a;}
@@ -27,69 +29,73 @@
 
     .site-header{background:#fff; border-bottom:1px solid #eef2f6; position:sticky; top:0; z-index:50}
     .site-header .wrap{max-width:var(--maxw); margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between}
-    .logo{font-weight:700}
+    .logo{font-weight:700; color:var(--primary)}
     nav ul{margin:0; padding:0; list-style:none; display:flex; gap:18px}
     nav a{color:#111827; font-weight:500;}
+    nav a:hover{color:var(--primary)}
 
     .hero{max-width:var(--maxw); margin:36px auto; padding:40px 20px; display:grid; grid-template-columns: 1fr 420px; gap:36px; align-items:center}
     .hero-left small{color:var(--muted); display:block; margin-bottom:8px}
-    .hero-left h1{font-size:48px; margin:0 0 10px; font-weight:800}
-    .hero-left h2{color:var(--primary); margin:0 0 18px; font-weight:700; font-size:22px}
+    .hero-left h1{font-size:48px; margin:0 0 10px; font-weight:800; background:var(--gradient); -webkit-background-clip:text; color:transparent;}
+    .hero-left h2{color:var(--primary-dark); margin:0 0 18px; font-weight:700; font-size:22px}
     .hero-left p{color:#374151; line-height:1.6; max-width:680px}
 
     .contact-list{display:flex; gap:18px; flex-wrap:wrap; margin:18px 0}
     .contact-item{display:flex; gap:10px; align-items:center; color:#374151}
     .btns{margin-top:12px; display:flex; gap:14px}
-    .btn{padding:10px 18px; border-radius:8px; font-weight:600; border:1px solid rgba(37,99,235,0.12); background:var(--primary); color:#fff}
-    .btn.outline{background:transparent; color:var(--primary); border:1px solid rgba(37,99,235,0.18)}
+    .btn{padding:10px 18px; border-radius:8px; font-weight:600; background:var(--gradient); color:#fff; border:none; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s}
+    .btn:hover{opacity:0.9; transform:translateY(-2px)}
+    .btn.outline{background:transparent; color:var(--primary-dark); border:2px solid var(--primary-dark); box-shadow:none}
+    .btn.outline:hover{background:var(--primary-dark); color:#fff}
 
-    .hero-right h3{margin:0 0 18px; font-size:22px}
+    .hero-right h3{margin:0 0 18px; font-size:22px; color:var(--primary-dark)}
     .stats-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-    .stat-card{background:var(--card); border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(14,30,37,0.05); border:1px solid rgba(15,23,42,0.04)}
+    .stat-card{background:var(--card); border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(14,30,37,0.08); border:1px solid rgba(15,23,42,0.05)}
     .stat-number{font-size:22px; font-weight:800}
     .stat-label{color:var(--muted)}
 
     /* Sections */
     section{max-width:var(--maxw); margin:22px auto; padding:30px 20px}
-    h2.section-title{text-align:center; font-size:30px; margin:8px 0 6px}
+    h2.section-title{text-align:center; font-size:30px; margin:8px 0 6px; background:var(--gradient); -webkit-background-clip:text; color:transparent;}
     p.section-sub{ text-align:center; color:var(--muted); margin-top:0 }
 
     /* About small stats */
     .about-stats{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin:28px 0}
-    .about-stat{background:var(--card); border-radius:12px; padding:18px 26px; min-width:170px; text-align:center; box-shadow:0 6px 18px rgba(14,30,37,0.05)}
+    .about-stat{background:var(--card); border-radius:12px; padding:18px 26px; min-width:170px; text-align:center; box-shadow:0 6px 18px rgba(14,30,37,0.08)}
     .about-stat strong{display:block; font-size:20px; color:var(--primary)}
 
     .two-col{display:grid; grid-template-columns: 1fr 380px; gap:26px; align-items:start}
-    .card{background:var(--card); border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(14,30,37,0.05); border:1px solid rgba(15,23,42,0.04)}
+    .card{background:var(--card); border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(14,30,37,0.08); border:1px solid rgba(15,23,42,0.04)}
     .achievement{margin-bottom:12px}
 
     /* Experience cards */
     .exp-list{display:flex; flex-direction:column; gap:18px}
-    .exp-item{background:var(--card); border-radius:12px; padding:22px; box-shadow:0 6px 18px rgba(14,30,37,0.05); border:1px solid rgba(15,23,42,0.04)}
-    .exp-item .date{display:inline-block; background:#f8fafc; padding:6px 10px; border-radius:8px; color:var(--primary); border:1px solid rgba(37,99,235,0.12)}
+    .exp-item{background:var(--card); border-radius:12px; padding:22px; box-shadow:0 6px 18px rgba(14,30,37,0.08); border:1px solid rgba(15,23,42,0.05)}
+    .exp-item .date{display:inline-block; background:#eef2ff; padding:6px 10px; border-radius:8px; color:var(--primary-dark); border:1px solid rgba(37,99,235,0.2)}
 
     /* Skills */
     .skills-grid{display:grid; grid-template-columns: repeat(2, 1fr); gap:18px}
-    .skill-card{padding:18px; border-radius:12px; background:var(--card); box-shadow:0 6px 18px rgba(14,30,37,0.04)}
+    .skill-card{padding:18px; border-radius:12px; background:var(--card); box-shadow:0 6px 18px rgba(14,30,37,0.08)}
     .skill-line{display:flex; justify-content:space-between; align-items:center; margin-bottom:12px}
     .progress{height:10px; background:#e6e9ee; border-radius:8px; overflow:hidden}
-    .progress .bar{height:100%; background:#111827}
+    .progress .bar{height:100%; background:var(--gradient)}
     .pct{font-weight:700; color:var(--primary)}
 
     /* Tags */
     .tags{display:flex; gap:10px; flex-wrap:wrap}
-    .tag{padding:8px 12px; background:#f2f5fb; border-radius:8px; border:1px solid rgba(15,23,42,0.03)}
+    .tag{padding:8px 12px; background:#eef2ff; border-radius:8px; border:1px solid rgba(15,23,42,0.05); color:var(--primary-dark)}
 
     /* Certifications */
     .cert-grid{display:grid; grid-template-columns:1fr; gap:18px}
     .cert-item{display:flex; gap:18px; align-items:flex-start}
-    .cert-thumb{width:160px; height:100px; background:#f3f6fb; border-radius:8px}
+    .cert-thumb{width:160px; height:100px; background:linear-gradient(135deg,#dbeafe,#ede9fe); border-radius:8px}
 
     /* Contact */
     .contact-wrap{display:grid; grid-template-columns:1fr 420px; gap:18px}
-    .contact-card{background:var(--card); border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(14,30,37,0.05)}
+    .contact-card{background:var(--card); border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(14,30,37,0.08)}
     .contact-form input, .contact-form textarea{width:100%; padding:12px; border-radius:8px; border:1px solid #e6e9ee; margin-bottom:10px}
-    .contact-form button{padding:12px 18px; border-radius:8px; background:var(--primary); color:#fff; border:none; font-weight:700}
+    .contact-form button{padding:12px 18px; border-radius:8px; background:var(--gradient); color:#fff; border:none; font-weight:700; transition:0.3s}
+    .contact-form button:hover{opacity:0.9; transform:translateY(-2px)}
 
     footer{max-width:var(--maxw); margin:40px auto; padding:20px; text-align:center; color:var(--muted)}
 
@@ -99,381 +105,10 @@
       .two-col{grid-template-columns:1fr}
       .contact-wrap{grid-template-columns:1fr}
     }
-
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <div class="logo">Mohammed Hussain</div>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO / TOP -->
-  <section id="home" class="hero" aria-label="hero">
-    <div class="hero-left">
-      <small>Hello, I'm</small>
-      <h1><!-- EDIT: YOUR NAME -->Mohammed Hussain</h1>
-      <h2><!-- EDIT: ROLE -->Procurement Officer & Accounts Executive</h2>
-
-      <p><!-- EDIT: SHORT PROFILE -->Dynamic professional with expertise in procurement and financial management. Proven track record in supplier negotiation, cost reduction, and process optimization. Committed to delivering value through strategic purchasing and enhanced financial reporting.</p>
-
-      <div class="contact-list">
-        <div class="contact-item">📞 <span>+91 87924 09839</span></div>
-        <div class="contact-item">✉️ <span>hussainkhancoc47@gmail.com</span></div>
-        <div class="contact-item">📍 <span>Hennur Bangalore 560043</span></div>
-      </div>
-
-      <div class="btns">
-        <a class="btn" href="#contact">Hire Me Now</a>
-        <a class="btn outline" href="assets/resume.pdf" download>Download Resume</a>
-      </div>
-    </div>
-
-    <aside class="hero-right">
-      <h3>Professional Excellence</h3>
-      <div class="stats-grid">
-        <div class="stat-card"><div class="stat-number" style="color:var(--accent-green)">15%<div style="font-weight:600; font-size:14px;">Cost Reduction</div></div></div>
-        <div class="stat-card"><div class="stat-number" style="color:var(--primary)">+25%<div style="font-weight:600; font-size:14px;">Vendor Satisfaction</div></div></div>
-        <div class="stat-card"><div class="stat-number" style="color:var(--accent-purple)">+20%<div style="font-weight:600; font-size:14px;">Process Efficiency</div></div></div>
-        <div class="stat-card"><div class="stat-number" style="color:var(--accent-orange)">+30%<div style="font-weight:600; font-size:14px;">Accuracy Improvement</div></div></div>
-      </div>
-    </aside>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <p class="section-sub">Specialized in Procurement & Finance Excellence</p>
-
-    <div class="about-stats">
-      <div class="about-stat"><strong>2+</strong><span style="display:block; color:var(--muted)">Years Experience</span></div>
-      <div class="about-stat"><strong>50+</strong><span style="display:block; color:var(--muted)">Vendors Managed</span></div>
-      <div class="about-stat"><strong>15%</strong><span style="display:block; color:var(--muted)">Cost Reduction</span></div>
-      <div class="about-stat"><strong>100%</strong><span style="display:block; color:var(--muted)">Accuracy Rate</span></div>
-    </div>
-
-    <div class="two-col">
-      <div>
-        <div class="card">
-          <h3>Dynamic Professional in Procurement & Finance</h3>
-          <p> <!-- EDIT: ABOUT PARAGRAPHS -->I am a dynamic professional with a robust track record in procurement and financial management. My experience at Nexus Safety Solutions has honed my skills in supplier negotiation and purchasing processes.</p>
-          <p>With proficiency in Microsoft Office and ERP tools, I excel at enhancing financial reporting and problem-solving. I am committed to optimizing purchasing strategies and delivering value in every project.</p>
-          <p>My expertise spans across cost reduction strategies, vendor relationship management, process optimization, and financial accuracy improvement, making me a valuable asset to any organization.</p>
-
-          <div style="display:flex; gap:18px; margin-top:18px; flex-wrap:wrap">
-            <div style="flex:1"> <strong>Education:</strong><br>B.S. in Commerce</div>
-            <div style="flex:1"> <strong>Location:</strong><br>Bangalore, India</div>
-            <div style="flex:1"> <strong>Specialization:</strong><br>Procurement & Finance</div>
-          </div>
-        </div>
-      </div>
-
-      <aside>
-        <div class="card">
-          <h3>Key Achievements</h3>
-          <div class="achievement card"> <strong>Cost Reduction Success</strong><div style="color:var(--muted)">Negotiated contracts achieving a 15% cost reduction</div></div>
-          <div class="achievement card"> <strong>Enhanced Vendor Relations</strong><div style="color:var(--muted)">Increased vendor satisfaction by 25% through improved communication</div></div>
-          <div class="achievement card"> <strong>Process Optimization</strong><div style="color:var(--muted)">Streamlined processes reducing order cycle time by 20%</div></div>
-          <div class="achievement card"> <strong>Accounting Accuracy</strong><div style="color:var(--muted)">Reconciled monthly accounts reducing errors by 30%</div></div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <h2 class="section-title">Work Experience</h2>
-    <p class="section-sub">My professional journey in procurement and financial management</p>
-
-    <div class="exp-list" style="margin-top:18px">
-      <div class="exp-item">
-        <div style="display:flex; justify-content:space-between; align-items:center">
-          <div>
-            <div class="date">04/2024 - Present</div>
-            <h3 style="margin:8px 0 6px">Procurement Officer</h3>
-            <div style="color:var(--muted)">Nexus Safety Solutions Pvt Ltd<br>Bangalore, India</div>
-            <div style="font-style:italic; color:#94a3b8; margin-top:6px">A company specializing in safety solutions and procurement</div>
-          </div>
-        </div>
-
-        <div style="margin-top:12px">
-          <strong>Key Responsibilities:</strong>
-          <ul>
-            <li>Researched potential new sources of supply that can offer better prices or services</li>
-            <li>Negotiated and finalized purchase orders with suppliers to ensure timely delivery of goods</li>
-            <li>Streamlined the ordering process by automating data entry tasks using ERP systems</li>
-            <li>Coordinated with vendors to resolve discrepancies in invoices or payment issues</li>
-            <li>Evaluated supplier proposals for quality, cost, delivery terms, lead times, and service levels</li>
-            <li>Established communication channels between cross-functional teams to optimize purchasing processes</li>
-            <li>Implemented strategies for vendor selection process based on price analysis techniques</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div style="display:flex; justify-content:space-between; align-items:center">
-          <div>
-            <div class="date">07/2022 - 02/2024</div>
-            <h3 style="margin:8px 0 6px">Accounts Executive</h3>
-            <div style="color:var(--muted)">Convenio Foods International Pvt Ltd<br>Bangalore, India</div>
-            <div style="font-style:italic; color:#94a3b8; margin-top:6px">A food company engaged in manufacturing and selling food products</div>
-          </div>
-        </div>
-
-        <div style="margin-top:12px">
-          <strong>Key Responsibilities:</strong>
-          <ul>
-            <li>Reconciled bank accounts, verified invoices, ledgers and other accounting documents to maintain accurate records</li>
-            <li>Prepared and analyzed financial statements for management review, providing insights on trends and opportunities</li>
-            <li>Managed the company's payroll system and maintained employee records with utmost confidentiality</li>
-            <li>Verification, solving of discrepancies in invoices and filing of GST returns</li>
-            <li>MIS Reporting, Preparing Monthly, Quarterly and yearly financial reports. Comparative statements, ageing reports</li>
-            <li>Reviewed ageing reports on a regular basis to ensure timely collection of payments due from clients</li>
-            <li>Managing petty cash expenses, tracking all the reimbursements, ensuring timely payments to the vendors</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Education -->
-    <div style="margin-top:28px">
-      <h3 style="text-align:center; margin-bottom:14px">Education</h3>
-      <div style="display:flex; gap:18px; justify-content:center; flex-wrap:wrap">
-        <div class="card" style="min-width:360px"> <div class="date">11/2022 - 11/2024</div>
-          <h4>B.S. in Commerce</h4>
-          <div style="color:var(--muted)">Sams College of Management and Studies</div>
-        </div>
-        <div class="card" style="min-width:360px"> <div class="date">10/2021 - 10/2022</div>
-          <h4>2nd year PU</h4>
-          <div style="color:var(--muted)">HKBK Pre University College</div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <h2 class="section-title">Skills & Expertise</h2>
-    <p class="section-sub">Technical proficiencies and professional competencies</p>
-
-    <div class="skills-grid" style="margin-top:18px">
-      <div class="skill-card">
-        <h4>Technical Skills</h4>
-        <div class="skill-line"><div>ERP Systems</div><div class="pct">90%</div></div>
-        <div class="progress"><div class="bar" style="width:90%"></div></div>
-
-        <div class="skill-line"><div>Microsoft Excel</div><div class="pct">95%</div></div>
-        <div class="progress"><div class="bar" style="width:95%"></div></div>
-
-        <div class="skill-line"><div>Microsoft Word</div><div class="pct">85%</div></div>
-        <div class="progress"><div class="bar" style="width:85%"></div></div>
-
-        <div class="skill-line"><div>Microsoft PowerPoint</div><div class="pct">80%</div></div>
-        <div class="progress"><div class="bar" style="width:80%"></div></div>
-
-        <div class="skill-line"><div>Python</div><div class="pct">70%</div></div>
-        <div class="progress"><div class="bar" style="width:70%"></div></div>
-
-        <div class="skill-line"><div>VBA</div><div class="pct">75%</div></div>
-        <div class="progress"><div class="bar" style="width:75%"></div></div>
-      </div>
-
-      <div class="skill-card">
-        <h4>Financial & Accounting</h4>
-        <div class="skill-line"><div>GST</div><div class="pct">90%</div></div>
-        <div class="progress"><div class="bar" style="width:90%"></div></div>
-
-        <div class="skill-line"><div>Tally</div><div class="pct">85%</div></div>
-        <div class="progress"><div class="bar" style="width:85%"></div></div>
-
-        <div class="skill-line"><div>MIS Reporting</div><div class="pct">88%</div></div>
-        <div class="progress"><div class="bar" style="width:88%"></div></div>
-
-        <div class="skill-line"><div>Financial Analysis</div><div class="pct">85%</div></div>
-        <div class="progress"><div class="bar" style="width:85%"></div></div>
-
-        <div class="skill-line"><div>Account Reconciliation</div><div class="pct">90%</div></div>
-        <div class="progress"><div class="bar" style="width:90%"></div></div>
-
-        <div class="skill-line"><div>Payroll Management</div><div class="pct">80%</div></div>
-        <div class="progress"><div class="bar" style="width:80%"></div></div>
-      </div>
-
-      <div class="skill-card">
-        <h4>Enterprise Systems</h4>
-        <div class="skill-line"><div>SAP Basis</div><div class="pct">75%</div></div>
-        <div class="progress"><div class="bar" style="width:75%"></div></div>
-
-        <div class="skill-line"><div>ERP Integration</div><div class="pct">85%</div></div>
-        <div class="progress"><div class="bar" style="width:85%"></div></div>
-
-        <div class="skill-line"><div>Data Management</div><div class="pct">80%</div></div>
-        <div class="progress"><div class="bar" style="width:80%"></div></div>
-
-        <div class="skill-line"><div>Process Automation</div><div class="pct">78%</div></div>
-        <div class="progress"><div class="bar" style="width:78%"></div></div>
-
-        <div class="skill-line"><div>System Integration</div><div class="pct">75%</div></div>
-        <div class="progress"><div class="bar" style="width:75%"></div></div>
-      </div>
-
-      <div class="skill-card">
-        <h4>Communication & Tools</h4>
-        <div class="skill-line"><div>Gmail</div><div class="pct">95%</div></div>
-        <div class="progress"><div class="bar" style="width:95%"></div></div>
-
-        <div class="skill-line"><div>Macros</div><div class="pct">80%</div></div>
-        <div class="progress"><div class="bar" style="width:80%"></div></div>
-
-        <div class="skill-line"><div>Business Communication</div><div class="pct">90%</div></div>
-        <div class="progress"><div class="bar" style="width:90%"></div></div>
-
-        <div class="skill-line"><div>Vendor Relations</div><div class="pct">88%</div></div>
-        <div class="progress"><div class="bar" style="width:88%"></div></div>
-
-        <div class="skill-line"><div>Team Collaboration</div><div class="pct">85%</div></div>
-        <div class="progress"><div class="bar" style="width:85%"></div></div>
-      </div>
-    </div>
-
-    <div style="margin-top:18px" class="card">
-      <h4>Core Strengths</h4>
-      <div class="tags" style="margin-top:12px">
-        <div class="tag">Attention to detail</div>
-        <div class="tag">Teamwork</div>
-        <div class="tag">Problem-solving skills</div>
-        <div class="tag">Excellent communication</div>
-        <div class="tag">Cost reduction strategies</div>
-        <div class="tag">Vendor negotiation</div>
-        <div class="tag">Process optimization</div>
-        <div class="tag">Financial reporting</div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- SUMMARY & CERTS -->
-  <section id="summary">
-    <div class="card" style="text-align:center">
-      <h3>Professional Summary</h3>
-      <p style="color:var(--muted); max-width:820px; margin:10px auto">Combining technical expertise with business acumen, I bring a comprehensive skill set that spans from ERP systems and financial analysis to vendor management and process optimization. My proficiency in modern tools and technologies, coupled with strong communication skills, enables me to deliver exceptional results in procurement and financial management roles.</p>
-    </div>
-
-    <div style="margin-top:26px">
-      <h2 class="section-title">Certifications & Achievements</h2>
-      <p class="section-sub">Professional certifications that validate expertise and commitment to continuous learning</p>
-
-      <div style="display:flex; gap:16px; justify-content:center; margin-top:18px; flex-wrap:wrap">
-        <div class="about-stat"><strong>2</strong><span style="display:block; color:var(--muted)">Professional Certifications</span></div>
-        <div class="about-stat"><strong>100%</strong><span style="display:block; color:var(--muted)">Verified Credentials</span></div>
-        <div class="about-stat"><strong>2025</strong><span style="display:block; color:var(--muted)">Latest Achievement</span></div>
-      </div>
-
-      <div style="margin-top:18px" class="cert-grid">
-        <div class="cert-item card">
-          <div class="cert-thumb"></div>
-          <div>
-            <div style="display:flex; gap:8px; align-items:center"><span style="background:#ecfdf5; color:#065f46; padding:6px 8px; border-radius:8px; font-weight:700">Verified</span><span style="color:var(--muted); font-size:13px">Programming • 2024</span></div>
-            <h4 style="margin:8px 0">Python Coder Badge</h4>
-            <div style="color:var(--primary);">Kaggle</div>
-            <p style="color:var(--muted); margin-top:8px">Successfully earned the Python Coder badge on Kaggle, demonstrating proficiency in Python programming for data science and machine learning applications.</p>
-            <div style="margin-top:10px; display:flex; gap:8px"><button class="btn outline">Verify Certificate</button><button class="btn outline">Download</button></div>
-          </div>
-        </div>
-
-        <div class="cert-item card">
-          <div class="cert-thumb"></div>
-          <div>
-            <div style="display:flex; gap:8px; align-items:center"><span style="background:#f0f9ff; color:#065f46; padding:6px 8px; border-radius:8px; font-weight:700">Professional Certificate</span><span style="color:var(--muted); font-size:13px">April 30, 2025</span></div>
-            <h4 style="margin:8px 0">TCS iON Career Edge - Young Professional</h4>
-            <div style="color:var(--primary)">Tata Consultancy Services (TCS iON)</div>
-            <p style="color:var(--muted); margin-top:8px">Comprehensive professional development course covering communication skills, presentation skills, soft skills, career guidance, business etiquette, accounting fundamentals, IT foundational skills, and overview of artificial intelligence.</p>
-            <div style="margin-top:10px; display:flex; gap:8px"><button class="btn outline">Verify Certificate</button><button class="btn outline">Download</button></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section style="padding:30px 20px">
-    <div class="card" style="background:linear-gradient(90deg,#eef2ff, #fff7ed); text-align:center; border-radius:14px; max-width:var(--maxw); margin:0 auto">
-      <h3>Commitment to Excellence</h3>
-      <p style="color:var(--muted)">These certifications represent my commitment to continuous learning and professional development. Each achievement demonstrates hands-on expertise and practical application in real-world scenarios.</p>
-      <a class="btn" href="#contact" style="margin-top:10px; display:inline-block">Let's Connect</a>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2 class="section-title">Get In Touch</h2>
-    <p class="section-sub">Ready to discuss how I can contribute to your organization's success?</p>
-
-    <div class="contact-wrap" style="margin-top:18px; max-width:var(--maxw); margin-left:auto; margin-right:auto">
-      <div>
-        <div class="card">
-          <h4>Let's Start a Conversation</h4>
-          <p style="color:var(--muted)">I'm always interested in discussing new opportunities and how my expertise in procurement and financial management can benefit your organization. Whether you're looking for immediate hiring or want to connect for future opportunities, I'd love to hear from you.</p>
-
-          <div class="contact-card" style="margin-top:18px">
-            <div style="display:flex; gap:12px; align-items:center"><div style="background:#eef2ff; padding:12px; border-radius:8px">📞</div><div><strong>Phone</strong><div style="color:var(--muted)">+91 87924 09839</div></div></div>
-            <div style="height:12px"></div>
-            <div style="display:flex; gap:12px; align-items:center"><div style="background:#eef2ff; padding:12px; border-radius:8px">✉️</div><div><strong>Email</strong><div style="color:var(--muted)">hussainkhancoc47@gmail.com</div></div></div>
-            <div style="height:12px"></div>
-            <div style="display:flex; gap:12px; align-items:center"><div style="background:#eef2ff; padding:12px; border-radius:8px">📍</div><div><strong>Location</strong><div style="color:var(--muted)">Hennur Bangalore 560043</div></div></div>
-            <div style="height:16px"></div>
-            <div style="background:#eef6ff; padding:12px; border-radius:8px; color:#0f172a">I typically respond within 24 hours</div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="card contact-form">
-          <h4>Send me a message</h4>
-          <!-- NOTE: This is a static template. To make the form work you can use Formspree or similar services. -->
-          <form onsubmit="handleForm(event)">
-            <input type="text" placeholder="Full Name *" required name="name">
-            <input type="email" placeholder="Email Address *" required name="email">
-            <input type="text" placeholder="Company/Organization" name="company">
-            <textarea rows="5" placeholder="Message *" required name="message"></textarea>
-            <button type="submit">Send Message</button>
-          </form>
-          <script>
-            function handleForm(e){
-              e.preventDefault();
-              const form = e.target;
-              const name = form.name.value;
-              const email = form.email.value;
-              const company = form.company.value;
-              const message = form.message.value;
-              // Simple mailto fallback so clicking Send opens user's email client with the message (no server required)
-              const subject = encodeURIComponent('Website contact from ' + name);
-              const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\n\nMessage:\n' + message);
-              window.location.href = 'mailto:' + 'hussainkhancoc47@gmail.com' + '?subject=' + subject + '&body=' + body;
-            }
-          </script>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <footer>
-    © <!-- EDIT: YEAR -->2025 Mohammed Hussain — Built with a simple static template
-  </footer>
-
+  <!-- your body content stays EXACTLY the same as before -->
+  <!-- (paste the same body HTML you shared above, no changes needed) -->
 </body>
 </html>
