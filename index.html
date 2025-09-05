@@ -83,8 +83,8 @@
       border-radius: 10px;
       font-weight: 600;
       border: none;
-      background: linear-gradient(135deg, #7c3aed, #2563eb);
-      color: #fff !important;
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: #fff;
       transition: 0.3s;
     }
     .btn:hover {
@@ -93,8 +93,8 @@
     }
     .btn.outline {
       background: transparent;
-      color: #fff;
-      border: 2px solid #fff;
+      color: var(--primary);
+      border: 2px solid var(--primary);
     }
     .btn.outline:hover {
       background: linear-gradient(135deg, #2563eb, #1e40af);
@@ -128,51 +128,16 @@
     }
     p.section-sub { text-align: center; color: var(--muted); margin-top: 0 }
 
-    /* Sections */
+    /* Other Layouts */
     section { max-width: var(--maxw); margin: 22px auto; padding: 30px 20px }
+    .about-stats { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin: 28px 0 }
+    .about-stat { background: var(--card); border-radius: 12px; padding: 18px 26px; min-width: 170px; text-align: center; box-shadow: 0 6px 18px rgba(14,30,37,0.05) }
+    .about-stat strong { display: block; font-size: 20px; color: var(--primary) }
 
-    /* Stats */
-    .about-stats {
-      display: flex;
-      gap: 18px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 28px 0;
-    }
-    .about-stat {
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      border-radius: 12px;
-      padding: 18px 26px;
-      min-width: 170px;
-      text-align: center;
-      box-shadow: 0 6px 18px rgba(14,30,37,0.15);
-      color: #fff;
-    }
-    .about-stat strong {
-      display: block;
-      font-size: 20px;
-      color: #fff;
-    }
-
-    /* Experience */
     .exp-list { display: flex; flex-direction: column; gap: 18px }
-    .exp-item {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 22px;
-      box-shadow: 0 6px 18px rgba(14,30,37,0.05);
-      border: 1px solid #f1f5f9;
-    }
-    .exp-item .date {
-      display: inline-block;
-      background: #f1f5f9;
-      padding: 6px 10px;
-      border-radius: 8px;
-      color: var(--primary);
-      border: 1px solid rgba(29,78,216,0.2);
-    }
+    .exp-item { background: var(--card); border-radius: 12px; padding: 22px; box-shadow: 0 6px 18px rgba(14,30,37,0.05); border: 1px solid #f1f5f9 }
+    .exp-item .date { display: inline-block; background: #f1f5f9; padding: 6px 10px; border-radius: 8px; color: var(--primary); border: 1px solid rgba(29,78,216,0.2) }
 
-    /* Skills */
     .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px }
     .skill-card { padding: 18px; border-radius: 12px; background: var(--card); box-shadow: 0 6px 18px rgba(14,30,37,0.04) }
     .skill-line { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px }
@@ -180,74 +145,25 @@
     .progress .bar { height: 100%; background: var(--primary) }
     .pct { font-weight: 700; color: var(--primary) }
 
-    /* Tags */
     .tags { display: flex; gap: 10px; flex-wrap: wrap }
     .tag { padding: 8px 12px; background: #f1f5f9; border-radius: 8px; border: 1px solid #e2e8f0 }
 
-    /* Impact / Achievements */
-    .impact-grid { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; margin: 28px 0; }
-    .impact-card {
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      border-radius: 12px;
-      padding: 18px 26px;
-      text-align: center;
-      box-shadow: 0 6px 18px rgba(14,30,37,0.15);
-      color: #fff !important;
-    }
-    .impact-card strong {
-      display: block;
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: #fff !important;
-    }
-
     /* Certificates */
     .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px }
-    .cert-item {
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 6px 18px rgba(14,30,37,0.15);
-      color: #fff;
-    }
+    .cert-item { display: flex; flex-direction: column; gap: 12px; text-align: center }
     .cert-thumb-img {
       width: 100%;
       height: 200px;
       object-fit: cover;
       border-radius: 10px;
-      border: 2px solid #fff;
-      margin-bottom: 12px;
-    }
-    .cert-item a.btn {
-      display: inline-block;
-      margin: 6px;
-      padding: 10px 16px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.15);
-      color: #fff !important;
-      font-weight: 600;
-      border: 1px solid rgba(255,255,255,0.3);
-      transition: 0.3s;
-    }
-    .cert-item a.btn:hover {
-      background: rgba(255,255,255,0.3);
-      transform: translateY(-2px);
+      border: 1px solid #e5e7eb;
     }
 
     /* Contact */
     .contact-wrap { display: grid; grid-template-columns: 1fr 420px; gap: 18px }
     .contact-card { background: var(--card); border-radius: 12px; padding: 18px; box-shadow: 0 6px 18px rgba(14,30,37,0.05) }
-    .contact-form input, .contact-form textarea {
-      width: 100%; padding: 12px; border-radius: 8px;
-      border: 1px solid #e5e7eb; margin-bottom: 10px;
-    }
-    .contact-form button {
-      padding: 12px 18px; border-radius: 8px;
-      background: var(--primary); color: #fff; border: none;
-      font-weight: 700; transition: 0.2s;
-    }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #e5e7eb; margin-bottom: 10px }
+    .contact-form button { padding: 12px 18px; border-radius: 8px; background: var(--primary); color: #fff; border: none; font-weight: 700; transition: 0.2s }
     .contact-form button:hover { background: #1e40af }
 
     /* Footer */
@@ -267,8 +183,7 @@
       .contact-wrap { grid-template-columns: 1fr; }
     }
   </style>
-</head>
-  
+</head>  
 <body>
   <header class="site-header">
     <div class="wrap">
@@ -644,6 +559,7 @@
 
 </body>
 </html>
+
 
 
 
